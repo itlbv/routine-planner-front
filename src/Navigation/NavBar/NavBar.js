@@ -7,7 +7,14 @@ import classes from './NavBar.module.css';
 const navBar = () => (
     <header className={classes.navBar}>
         <Logo/>
-        <strong>Routine Planner</strong>
+        <strong>
+            <a href={'/'}
+               style={{
+                   textDecoration: 'none',
+                   color: 'white'
+               }}
+            >Routine Planner</a>
+        </strong>
         <nav>
             <NavItems/>
         </nav>
