@@ -4,13 +4,29 @@ import InRowButton from '../../UI/TableButtons/InRowButton/InRowButton';
 
 const routinesTable = props => {
 
+    const editHandler = (id) => {
+        console.log('edit ' + id);
+    };
+
+    const deleteHandler = (id) => {
+        console.log('delete ' + id);
+    };
+
     const table = props.routines.map(r => (
         <tr key={r.id}>
             <td>{r.id}</td>
             <td>{r.name}</td>
             <td>{r.description}</td>
-            <td><InRowButton>Edit</InRowButton></td>
-            <td><InRowButton>Delete</InRowButton></td>
+            <td>
+                <InRowButton type={'edit'}
+                             clicked={() => editHandler(r.id)}
+                >Edit</InRowButton>
+            </td>
+            <td>
+                <InRowButton type={'delete'}
+                             clicked={() => deleteHandler(r.id)}
+                >Delete</InRowButton>
+            </td>
         </tr>
     ));
 

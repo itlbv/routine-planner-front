@@ -1,3 +1,13 @@
 .inRowButton {
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.edit {
+    background: deepskyblue;
+}
+
+.delete {
+    background: salmon;
 }
