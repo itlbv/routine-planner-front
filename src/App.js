@@ -5,14 +5,15 @@ import Footer from './Footer/Footer';
 import Home from './Home/Home';
 import Users from './Users/Users';
 import Routines from './Routines/Routines';
+import {Route} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
         <NavBar/>
-        <Routines/>
-        <Home/>
-        <Users/>
+        <Route path={'/'} exact component={Home}/>
+        <Route path={'/routines'} component={Routines}/>
+        <Route path={'/users'} component={Users}/>
         <Footer/>
     </div>
   );
