@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a1adcf-714c-4a8a-be62-4f124facdcac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Footer/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Footer/Footer.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/NavBar/NavBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/NavBar/NavBar.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItem/NavItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItem/NavItem.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItems.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItems.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/DrawerToggle/DrawerToggle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/DrawerToggle/DrawerToggle.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/SideDrawer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/SideDrawer.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/Logo/Logo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/Logo/Logo.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hoc/Auxiliary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,15 +30,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SsgrgyZ0Xn1wZ6TRppoTh2qOIP" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ReactProjects\routine-planner-front\src\Navigation\NavItems\NavItem" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -66,8 +87,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572357917619</updated>
-      <workItem from="1572357919082" duration="623000" />
+      <workItem from="1572357919082" duration="13153000" />
+      <workItem from="1572442047456" duration="658000" />
     </task>
+    <task id="LOCAL−00001" summary="Delete default React code">
+      <created>1572358732222</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1572358732222</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,10 +107,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Delete default React code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete default React code" />
   </component>
 </project>

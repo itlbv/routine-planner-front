@@ -1,0 +1,6 @@
+.footer {
+    width: 100%;
+    background: darkgray;
+    display: flex;
+    justify-content: space-around;
+}

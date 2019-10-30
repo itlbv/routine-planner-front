@@ -1,0 +1,17 @@
+.navBar {
+    background: deepskyblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
+.navBar nav {
+    height: 100%;
+}
+
+@media (max-width: 577px) {
+    .navBar nav {
+        display: none;
+    }
+}

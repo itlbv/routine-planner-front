@@ -1,0 +1,15 @@
+.navItem {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    border-bottom: 4px solid transparent;
+}
+
+.navItem:hover {
+    background: darkblue;
+    border-bottom: brown 4px solid;
+}

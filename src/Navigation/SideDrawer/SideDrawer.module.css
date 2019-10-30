@@ -1,0 +1,9 @@
+.sideDrawer {
+
+}
+
+@media (min-width: 575px) {
+    .sideDrawer {
+        display: none;
+    }
+}
