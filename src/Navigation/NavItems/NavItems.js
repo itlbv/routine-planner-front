@@ -4,8 +4,8 @@ import classes from './NavItems.module.css';
 
 const navItems = () => (
     <div className={classes.navItems}>
-        <NavItem link={'/'}>Users</NavItem>
-        <NavItem link={'/'}>Routines</NavItem>
+        <NavItem link={'/users'}>Users</NavItem>
+        <NavItem link={'/routines'}>Routines</NavItem>
     </div>
 );
 
