@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19a1adcf-714c-4a8a-be62-4f124facdcac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Footer/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Footer/Footer.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/NavBar/NavBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/NavBar/NavBar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItem/NavItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItem/NavItem.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItems.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/NavItems/NavItems.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/DrawerToggle/DrawerToggle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/DrawerToggle/DrawerToggle.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/SideDrawer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Navigation/SideDrawer/SideDrawer.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Logo/Logo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Logo/Logo.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hoc/Auxiliary.js" afterDir="false" />
+    <list default="true" id="19a1adcf-714c-4a8a-be62-4f124facdcac" name="Default Changelist" comment="Add initial UI">
+      <change afterPath="$PROJECT_DIR$/src/Home/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Routines/Routines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Routines/Routines.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Routines/RoutinesTable/RoutinesTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Routines/RoutinesTable/RoutinesTable.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/Users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/Users.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/UsersTable/UsersTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/UsersTable/UsersTable.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,6 +32,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -46,6 +43,9 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ReactProjects\routine-planner-front\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ReactProjects\routine-planner-front\src\Navigation\NavItems\NavItem" />
     </key>
@@ -88,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572357917619</updated>
       <workItem from="1572357919082" duration="13153000" />
-      <workItem from="1572442047456" duration="658000" />
+      <workItem from="1572442047456" duration="2394000" />
     </task>
     <task id="LOCAL−00001" summary="Delete default React code">
       <created>1572358732222</created>
@@ -96,7 +96,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1572358732222</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="Add initial UI">
+      <created>1572442874938</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1572442874938</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,7 +122,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Delete default React code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete default React code" />
+    <MESSAGE value="Add initial UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add initial UI" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

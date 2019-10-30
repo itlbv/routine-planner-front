@@ -2,12 +2,17 @@ import React from 'react';
 import './App.css';
 import NavBar from './Navigation/NavBar/NavBar';
 import Footer from './Footer/Footer';
+import Home from './Home/Home';
+import Users from './Users/Users';
+import Routines from './Routines/Routines';
 
 function App() {
   return (
     <div className="App">
         <NavBar/>
-        <div style={{height: 400}}>Main content</div>
+        <Routines/>
+        <Home/>
+        <Users/>
         <Footer/>
     </div>
   );
