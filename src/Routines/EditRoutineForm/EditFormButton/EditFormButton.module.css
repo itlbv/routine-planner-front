@@ -1,0 +1,11 @@
+.editFormButton {
+    text-transform: uppercase;
+}
+
+.continue {
+    color: green;
+}
+
+.cancel {
+    color: darkred;
+}
