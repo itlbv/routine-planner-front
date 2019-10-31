@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
 import classes from './Routines.module.css';
-import RoutinesTable from './RoutinesTable/RoutinesTable';
-import EditRoutineForm from './EditRoutineForm/EditRoutineForm';
-import Modal from '../UI/Modal/Modal';
-import Spinner from '../UI/Spinner/Spinner';
-import CreateButton from '../UI/CreateButton/CreateButton';
-import axios from '../axios';
+import RoutinesTable from '../../components/Routines/RoutinesTable/RoutinesTable';
+import EditRoutineForm from '../../components/Routines/EditRoutineForm/EditRoutineForm';
+import Modal from '../../components/UI/Modal/Modal';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import CreateButton from '../../components/UI/CreateButton/CreateButton';
+import CreateRoutineForm from '../../components/Routines/CreateRoutineForm/CreateRoutineForm';
+import axios from '../../axios';
 
 class Routines extends Component {
 
     state = {
         routines: null,
         routineToEdit: null,
+        showEditForm: null,
+        showCreateForm: null,
         modalVisible: false
     };
 
@@ -25,9 +28,14 @@ class Routines extends Component {
     render() {
 
         const editHandler = (routineId) => {
-            console.log('edit ' + routineId);
+            this.setState({showEditForm: true});
             showModal();
             getRoutine(routineId);
+        };
+
+        const createHandler = () => {
+            this.setState({showCreateForm: true});
+            showModal();
         };
 
         const getRoutine = (routineId) => {
@@ -37,12 +45,16 @@ class Routines extends Component {
                 ))
         };
 
-        const createRoutine = () => {
-            console.log('create routine!')
+        const createRoutine = (newRoutine) => {
+            console.log('create routine!');
+            axios.post('/routines/', newRoutine)
+                .then(() => console.log('create!'))
         };
 
-        const updateRoutine = () => {
-            console.log('update routine!')
+        const updateRoutine = (updatedRoutine) => {
+            console.log('update routine!');
+            axios.post('/routines/', updatedRoutine)
+                .then(() => console.log('update!'))
         };
 
         const deleteHandler = (routineId) => {
@@ -54,7 +66,12 @@ class Routines extends Component {
         };
 
         const hideModal = () => {
-            this.setState({modalVisible: false, routineToEdit: null});
+            this.setState({
+                routineToEdit: null,
+                showEditForm: false,
+                showCreateForm: false,
+                modalVisible: false
+            });
         };
 
         let routinesTable = <Spinner/>;
@@ -65,15 +82,16 @@ class Routines extends Component {
         }
 
         let editRoutineForm = null;
-        if (this.state.modalVisible) {
+        if (this.state.showEditForm) {
             editRoutineForm = <EditRoutineForm routine={this.state.routineToEdit}
                                                submitHandler={updateRoutine}
                                                cancelHandler={hideModal}/>;
         }
 
-        let newRoutineForm = null;
-        if (this.state.modalVisible) {
-            newRoutineForm = null;
+        let createRoutineForm = null;
+        if (this.state.showCreateForm) {
+            createRoutineForm = <CreateRoutineForm submitHandler={createRoutine}
+                                                   cancelHandler={hideModal}/>;
         }
 
         return (
@@ -81,11 +99,11 @@ class Routines extends Component {
                 <Spinner/>
                 <Modal visible={this.state.modalVisible} hideModalHandler={hideModal}>
                     {editRoutineForm}
-                    {newRoutineForm}
+                    {createRoutineForm}
                 </Modal>
                 <h2>Routines</h2>
                 <section>Here's a table of all routines</section>
-                <CreateButton clicked={createRoutine}>New routine</CreateButton>
+                <CreateButton clicked={createHandler}>New routine</CreateButton>
                 {routinesTable}
             </div>
         );

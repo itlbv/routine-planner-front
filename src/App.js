@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import NavBar from './Navigation/NavBar/NavBar';
-import Footer from './Footer/Footer';
-import Home from './Home/Home';
-import Users from './Users/Users';
-import Routines from './Routines/Routines';
+import NavBar from './components/Navigation/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import Users from './containers/Users/Users';
+import Routines from './containers/Routines/Routines';
 import {Route} from 'react-router-dom';
 
 function App() {

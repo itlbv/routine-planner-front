@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from './InRowButton.module.css';
+import classes from './FormButton.module.css';
 
-const inRowButton = props => {
+const formButton = props => {
 
-    const cls = [classes.inRowButton, classes[props.type]];
+    const cls = [classes.formButton, classes[props.type]];
 
     return (
         <div onClick={props.clicked}
@@ -13,4 +13,4 @@ const inRowButton = props => {
     );
 };
 
-export default inRowButton;
+export default formButton;

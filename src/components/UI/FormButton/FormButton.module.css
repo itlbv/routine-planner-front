@@ -1,8 +1,8 @@
-.editFormButton {
+.formButton {
     text-transform: uppercase;
 }
 
-.continue {
+.success {
     color: green;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Modal.module.css';
-import Aux from '../../hoc/Auxiliary';
+import Aux from '../../../hoc/Auxiliary';
 import Backdrop from '../Backdrop/Backdrop';
 import CloseButton from './CloseButton/CloseButton';
 

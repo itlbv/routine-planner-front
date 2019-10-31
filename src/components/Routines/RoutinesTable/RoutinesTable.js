@@ -1,10 +1,8 @@
 import React from 'react';
 import classes from './RoutinesTable.module.css';
-import InRowButton from '../../UI/TableButtons/InRowButton/InRowButton';
+import InTableRowButton from '../../UI/InTableRowButton/InTableRowButton';
 
 const routinesTable = props => {
-
-
 
     const table = props.routines.map(r => (
         <tr key={r.id}>
@@ -12,14 +10,14 @@ const routinesTable = props => {
             <td>{r.name}</td>
             <td>{r.description}</td>
             <td>
-                <InRowButton type={'edit'}
-                             clicked={() => props.edit(r.id)}
-                >Edit</InRowButton>
+                <InTableRowButton type={'edit'}
+                                  clicked={() => props.edit(r.id)}
+                >Edit</InTableRowButton>
             </td>
             <td>
-                <InRowButton type={'delete'}
-                             clicked={() => props.delete(r.id)}
-                >Delete</InRowButton>
+                <InTableRowButton type={'delete'}
+                                  clicked={() => props.delete(r.id)}
+                >Delete</InTableRowButton>
             </td>
         </tr>
     ));

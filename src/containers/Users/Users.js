@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Users.module.css';
-import UsersTable from './UsersTable/UsersTable';
+import UsersTable from '../../components/Users/UsersTable/UsersTable';
 
 const users = () => (
     <div className={classes.users}>

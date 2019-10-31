@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './EditRoutineForm.module.css';
 import Spinner from '../../UI/Spinner/Spinner';
-import EditFormButton from './EditFormButton/EditFormButton';
+import FormButton from '../../UI/FormButton/FormButton';
 
 const editRoutineForm = props => {
 
@@ -11,8 +11,9 @@ const editRoutineForm = props => {
             <div className={classes.editRoutine}>
                 <h2>{props.routine.name}</h2>
                 <div>{props.routine.description}</div>
-                <EditFormButton clicked={props.submitHandler} type={'continue'}>Continue</EditFormButton>
-                <EditFormButton clicked={props.cancelHandler} type={'cancel'}>Cancel</EditFormButton>
+                {console.log(props.routine)}
+                <FormButton clicked={props.submitHandler} type={'success'}>Continue</FormButton>
+                <FormButton clicked={props.cancelHandler} type={'cancel'}>Cancel</FormButton>
             </div>
         );
     }
