@@ -1,11 +1,10 @@
 import React from 'react';
-import classes from './Spinner.module.css';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const spinner = () => (
-    <div className={classes.ldsRipple}>
-        <div/>
-        <div/>
-    </div>
+    <PulseLoader sizeUnit={"px"}
+                 size={20}
+                 color={'deepskyblue'}/>
 );
 
 export default spinner;
