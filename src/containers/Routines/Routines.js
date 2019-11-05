@@ -6,6 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import CreateButton from '../../components/UI/CreateButton/CreateButton';
 import CreateRoutineForm from '../../components/Routines/CreateRoutineForm/CreateRoutineForm';
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from '../../axios';
 
 class Routines extends Component {
@@ -23,6 +24,9 @@ class Routines extends Component {
             .then(response => (
                 this.setState({routines: response.data})
             ))
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     render() {
@@ -43,18 +47,32 @@ class Routines extends Component {
                 .then(response => (
                     this.setState({routineToEdit: response.data})
                 ))
+                .catch(error => {
+                    console.log('catch get error');
+                    console.log(error.message);
+                    hideAllForms()
+                })
         };
 
         const createRoutine = (newRoutine) => {
-            console.log('create routine!');
+            console.log('create in routines');
             axios.post('/routines/', newRoutine)
-                .then(() => console.log('create!'))
+                .then(() => hideAllForms())
+                .catch(error => {
+                    console.log('catch create error');
+                    console.log(error.message);
+                })
         };
 
         const updateRoutine = (updatedRoutine) => {
-            console.log('update routine!');
+            console.log('update in routines');
+            console.log(updatedRoutine);
             axios.post('/routines/', updatedRoutine)
-                .then(() => console.log('update!'))
+                .then(() => hideAllForms())
+                .catch(error => {
+                    console.log('catch update error');
+                    console.log(error.message);
+                })
         };
 
         const deleteHandler = (routineId) => {
@@ -65,7 +83,7 @@ class Routines extends Component {
             this.setState({modalVisible: true});
         };
 
-        const hideModal = () => {
+        const hideAllForms = () => {
             this.setState({
                 routineToEdit: null,
                 showEditForm: false,
@@ -75,7 +93,7 @@ class Routines extends Component {
         };
 
         let routinesTable = <Spinner/>;
-        if (this.state.routines != null) {
+        if (this.state.routines !== null) {
             routinesTable = <RoutinesTable routines={this.state.routines}
                                            edit={editHandler}
                                            delete={deleteHandler}/>;
@@ -85,19 +103,20 @@ class Routines extends Component {
         if (this.state.showEditForm) {
             editRoutineForm = <EditRoutineForm routine={this.state.routineToEdit}
                                                submitHandler={updateRoutine}
-                                               cancelHandler={hideModal}/>;
+                                               cancelHandler={hideAllForms}/>;
         }
 
         let createRoutineForm = null;
         if (this.state.showCreateForm) {
             createRoutineForm = <CreateRoutineForm submitHandler={createRoutine}
-                                                   cancelHandler={hideModal}/>;
+                                                   cancelHandler={hideAllForms}/>;
         }
 
         return (
             <div className={classes.routines}>
-                <Spinner/>
-                <Modal visible={this.state.modalVisible} hideModalHandler={hideModal}>
+                <CreateRoutineForm submitHandler={createRoutine}
+                                   cancelHandler={hideAllForms}/>
+                <Modal visible={this.state.modalVisible} hideModalHandler={hideAllForms}>
                     {editRoutineForm}
                     {createRoutineForm}
                 </Modal>
@@ -110,4 +129,4 @@ class Routines extends Component {
     }
 }
 
-export default Routines;
+export default withErrorHandler(Routines, axios);
