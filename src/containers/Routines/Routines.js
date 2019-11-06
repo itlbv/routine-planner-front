@@ -42,6 +42,23 @@ class Routines extends Component {
             showModal();
         };
 
+        const createRoutine = (newRoutine) => {
+            console.log(newRoutine);
+            axios.post('/routines/', newRoutine,
+                {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+                .then(() => hideAllForms())
+                .catch(error => {
+                    console.log('catch create error');
+                    console.log(error.message);
+                })
+        };
+
         const getRoutine = (routineId) => {
             axios.get('/routines/' + routineId)
                 .then(response => (
@@ -54,20 +71,8 @@ class Routines extends Component {
                 })
         };
 
-        const createRoutine = (newRoutine) => {
-            console.log('create in routines');
-            axios.post('/routines/', newRoutine)
-                .then(() => hideAllForms())
-                .catch(error => {
-                    console.log('catch create error');
-                    console.log(error.message);
-                })
-        };
-
         const updateRoutine = (updatedRoutine) => {
-            console.log('update in routines');
-            console.log(updatedRoutine);
-            axios.post('/routines/', updatedRoutine)
+            axios.put('/routines/', updatedRoutine)
                 .then(() => hideAllForms())
                 .catch(error => {
                     console.log('catch update error');
@@ -76,7 +81,7 @@ class Routines extends Component {
         };
 
         const deleteHandler = (routineId) => {
-            console.log('delete ' + routineId);
+            axios.delete('/routines/' + routineId);
         };
 
         const showModal = () => {
