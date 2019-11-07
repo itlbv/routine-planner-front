@@ -1,0 +1,21 @@
+.createRoutineForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.addInputButton {
+    color: #586066;
+    margin-bottom: 17px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+}
+
+.submitButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
