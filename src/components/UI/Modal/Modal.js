@@ -7,7 +7,7 @@ import CloseButton from './CloseButton/CloseButton';
 const modal = props => (
     <Aux>
         <Backdrop show={props.visible} clicked={props.hideModalHandler}/>
-        <div className={classes.Modal}
+        <div className={classes.modal}
              style={{
                  opacity: props.visible ? '1' : '0',
                  zIndex: props.visible ? '500' : '-100'
