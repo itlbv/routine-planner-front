@@ -10,7 +10,7 @@ const modal = props => (
         <div className={classes.modal}
              style={{
                  opacity: props.visible ? '1' : '0',
-                 zIndex: props.visible ? '500' : '-100'
+                 transform: props.visible ? 'translate(-50%, -50%)' : 'translateY(-100vh)'
              }}>
             <CloseButton clicked={props.hideModalHandler}/>
             {props.children}
