@@ -1,5 +1,9 @@
 .formButton {
+    cursor: pointer;
+    padding: 5px;
     text-transform: uppercase;
+    background-color: transparent;
+    border: none;
 }
 
 .success {

@@ -6,10 +6,10 @@ const formButton = props => {
     const cls = [classes.formButton, classes[props.type]];
 
     return (
-        <div onClick={props.clicked}
-             className={cls.join(' ')}>
+        <button className={cls.join(' ')}
+                onClick={props.clicked}>
             {props.children}
-        </div>
+        </button>
     );
 };
 

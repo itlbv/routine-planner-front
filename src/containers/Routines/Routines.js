@@ -42,16 +42,10 @@ class Routines extends Component {
             showModal();
         };
 
-        const createRoutine = (newRoutine) => {
-            console.log(newRoutine);
-            axios.post('/routines/', newRoutine,
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
+        const createRoutine = (routineCreated) => {
+            const routineToPost = {...routineCreated};
+            routineToPost.timeOfDay = routineToPost.timeOfDay.toISOString().substr(11, 8);
+            axios.post('/routines/', routineToPost)
                 .then(() => hideAllForms())
                 .catch(error => {
                     console.log('catch create error');
@@ -81,7 +75,12 @@ class Routines extends Component {
         };
 
         const deleteHandler = (routineId) => {
-            axios.delete('/routines/' + routineId);
+            axios.delete('/routines/' + routineId)
+                .then(/* TODO update routines table */)
+                .catch(error => {
+                    console.log('catch delete error');
+                    console.log(error.message);
+                });
         };
 
         const showModal = () => {
@@ -119,14 +118,10 @@ class Routines extends Component {
 
         return (
             <div className={classes.routines}>
-                <CreateRoutineForm submitHandler={createRoutine}
-                                   cancelHandler={hideAllForms}/>
                 <Modal visible={this.state.modalVisible} hideModalHandler={hideAllForms}>
                     {editRoutineForm}
                     {createRoutineForm}
                 </Modal>
-                <h2>Routines</h2>
-                <section>Here's a table of all routines</section>
                 <CreateButton clicked={createHandler}>New routine</CreateButton>
                 {routinesTable}
             </div>
