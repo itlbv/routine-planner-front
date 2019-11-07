@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classes from './Routines.module.css';
+import Aux from '../../hoc/Auxiliary';
 import RoutinesTable from '../../components/Routines/RoutinesTable/RoutinesTable';
 import EditRoutineForm from '../../components/Routines/EditRoutineForm/EditRoutineForm';
 import Modal from '../../components/UI/Modal/Modal';
@@ -117,14 +118,16 @@ class Routines extends Component {
         }
 
         return (
-            <div className={classes.routines}>
+            <Aux>
                 <Modal visible={this.state.modalVisible} hideModalHandler={hideAllForms}>
                     {editRoutineForm}
                     {createRoutineForm}
                 </Modal>
-                <CreateButton clicked={createHandler}>New routine</CreateButton>
-                {routinesTable}
-            </div>
+                <div className={classes.routines}>
+                    <CreateButton clicked={createHandler}>New routine</CreateButton>
+                    {routinesTable}
+                </div>
+            </Aux>
         );
     }
 }
