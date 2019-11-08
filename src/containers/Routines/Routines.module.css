@@ -1,2 +1,13 @@
+.routinesContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .routines {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
 }

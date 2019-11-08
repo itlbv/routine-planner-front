@@ -123,9 +123,11 @@ class Routines extends Component {
                     {editRoutineForm}
                     {createRoutineForm}
                 </Modal>
-                <div className={classes.routines}>
-                    <CreateButton clicked={createHandler}>New routine</CreateButton>
-                    {routinesTable}
+                <div className={classes.routinesContainer}>
+                    <div className={classes.routines}>
+                        <CreateButton clicked={createHandler}>New routine</CreateButton>
+                        {routinesTable}
+                    </div>
                 </div>
             </Aux>
         );
