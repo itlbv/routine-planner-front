@@ -1,7 +1,12 @@
 .inRowButton {
+    cursor: pointer;
     padding: 5px;
     border-radius: 5px;
-    cursor: pointer;
+    border: none;
+}
+
+button:focus {
+    outline: 0;
 }
 
 .edit {

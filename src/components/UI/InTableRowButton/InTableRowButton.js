@@ -6,10 +6,10 @@ const inTableRowButton = props => {
     const cls = [classes.inRowButton, classes[props.type]];
 
     return (
-        <div onClick={props.clicked}
-             className={cls.join(' ')}>
+        <button onClick={props.clicked}
+                className={cls.join(' ')}>
             {props.children}
-        </div>
+        </button>
     );
 };
 
