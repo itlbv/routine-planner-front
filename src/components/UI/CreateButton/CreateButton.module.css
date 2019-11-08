@@ -1,5 +1,13 @@
 .createButton {
-    background: deepskyblue;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 3px;
+    background: #36304a;
+    color: white;
     border-radius: 5px;
-    width: 70%;
+    font-size: 14px;
+/ / font-weight: bolder;
+    text-transform: uppercase;
 }
