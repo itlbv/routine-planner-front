@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import classes from './Routines.module.css';
 import Aux from '../../hoc/Auxiliary';
 import RoutinesTable from '../../components/Routines/RoutinesTable/RoutinesTable';
-import EditRoutineForm from '../../components/Routines/EditRoutineForm/EditRoutineForm';
 import Modal from '../../components/UI/Modal/Modal';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import CreateButton from '../../components/UI/CreateButton/CreateButton';
 import CreateRoutineForm from '../../components/Routines/CreateRoutineForm/CreateRoutineForm';
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import {parseISO} from 'date-fns'
 import axios from '../../axios';
 
 class Routines extends Component {
@@ -39,14 +39,26 @@ class Routines extends Component {
         };
 
         const createHandler = () => {
-            this.setState({showCreateForm: true});
+            this.setState({
+                showCreateForm: true,
+                routineToEdit: {
+                    id: null,
+                    name: '',
+                    description: '',
+                    startDate: new Date(),
+                    endDate: null,
+                    timeOfDay: null,
+                    period: 'P2D'
+                }
+            });
             showModal();
         };
 
-        const createRoutine = (routineCreated) => {
-            const routineToPost = {...routineCreated};
-            routineToPost.timeOfDay = routineToPost.timeOfDay.toISOString().substr(11, 8);
-            axios.post('/routines/', routineToPost)
+        const createRoutine = () => {
+            const createdRoutine = {...this.state.routineToEdit};
+            createdRoutine.timeOfDay = createdRoutine.timeOfDay.toISOString().substr(11, 8);
+
+            axios.post('/routines/', createdRoutine)
                 .then(() => hideAllForms())
                 .catch(error => {
                     console.log('catch create error');
@@ -54,20 +66,11 @@ class Routines extends Component {
                 })
         };
 
-        const getRoutine = (routineId) => {
-            axios.get('/routines/' + routineId)
-                .then(response => (
-                    this.setState({routineToEdit: response.data})
-                ))
-                .catch(error => {
-                    console.log('catch get error');
-                    console.log(error.message);
-                    hideAllForms()
-                })
-        };
+        const updateRoutine = () => {
+            const updatedRoutine = {...this.state.routineToEdit};
+            updatedRoutine.timeOfDay = updatedRoutine.timeOfDay.toISOString().substr(0, 23);
 
-        const updateRoutine = (updatedRoutine) => {
-            axios.put('/routines/', updatedRoutine)
+            axios.put('/routines/' + updatedRoutine.id, updatedRoutine)
                 .then(() => hideAllForms())
                 .catch(error => {
                     console.log('catch update error');
@@ -75,9 +78,43 @@ class Routines extends Component {
                 })
         };
 
+        const parseRoutineDatesAndSetState = routine => {
+            routine.endDate = parseISO(routine.endDate);
+            routine.startDate = parseISO(routine.startDate);
+
+            const hours = routine.timeOfDay.substr(0, 2);
+            const minutes = routine.timeOfDay.substr(3, 2);
+            const timeOfDay = new Date();
+            timeOfDay.setHours(hours);
+            timeOfDay.setMinutes(minutes);
+            routine.timeOfDay = timeOfDay;
+
+            this.setState({routineToEdit: routine})
+        };
+
+        const getRoutine = (routineId) => {
+            axios.get('/routines/' + routineId)
+                .then(response => {
+                    parseRoutineDatesAndSetState(response.data)
+                })
+                .catch(error => {
+                    console.log('catch get error');
+                    console.log(error.message);
+                    hideAllForms()
+                })
+        };
+
+        const updateHandler = () => {
+            if (this.state.routineToEdit.id === null) {
+                createRoutine()
+            } else {
+                updateRoutine()
+            }
+        };
+
         const deleteHandler = (routineId) => {
             axios.delete('/routines/' + routineId)
-                .then(/* TODO update routines table */)
+                .then(() => this.setState({randomKey: Math.random()}))
                 .catch(error => {
                     console.log('catch delete error');
                     console.log(error.message);
@@ -91,7 +128,6 @@ class Routines extends Component {
         const hideAllForms = () => {
             this.setState({
                 routineToEdit: null,
-                showEditForm: false,
                 showCreateForm: false,
                 modalVisible: false
             });
@@ -124,7 +160,7 @@ class Routines extends Component {
                     {createRoutineForm}
                 </Modal>
                 <div className={classes.routinesContainer}>
-                    <div className={classes.routines}>
+                    <div className={classes.routines} key={this.state.randomKey}>
                         <CreateButton clicked={createHandler}>New routine</CreateButton>
                         {routinesTable}
                     </div>
