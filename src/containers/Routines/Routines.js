@@ -33,7 +33,7 @@ class Routines extends Component {
     render() {
 
         const editHandler = (routineId) => {
-            this.setState({showEditForm: true});
+            this.setState({showCreateForm: true});
             showModal();
             getRoutine(routineId);
         };
@@ -140,23 +140,25 @@ class Routines extends Component {
                                            delete={deleteHandler}/>;
         }
 
-        let editRoutineForm = null;
-        if (this.state.showEditForm) {
-            editRoutineForm = <EditRoutineForm routine={this.state.routineToEdit}
-                                               submitHandler={updateRoutine}
-                                               cancelHandler={hideAllForms}/>;
-        }
+        const inputHandler = (name, value) => {
+            const routine = {...this.state.routineToEdit};
+            routine[name] = value;
+            this.setState({
+                routineToEdit: routine
+            });
+        };
 
         let createRoutineForm = null;
         if (this.state.showCreateForm) {
-            createRoutineForm = <CreateRoutineForm submitHandler={createRoutine}
+            createRoutineForm = <CreateRoutineForm routine={this.state.routineToEdit}
+                                                   inputHandler={inputHandler}
+                                                   submitHandler={updateHandler}
                                                    cancelHandler={hideAllForms}/>;
         }
 
         return (
             <Aux>
                 <Modal visible={this.state.modalVisible} hideModalHandler={hideAllForms}>
-                    {editRoutineForm}
                     {createRoutineForm}
                 </Modal>
                 <div className={classes.routinesContainer}>
